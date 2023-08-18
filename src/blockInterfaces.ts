@@ -1,35 +1,35 @@
 export type BlockType =
-  | 'bookmark'
-  | 'breadcrumb'
+  // | 'bookmark'
+  // | 'breadcrumb'
   | 'bulleted_list_item'
   | 'callout'
-  | 'child_database'
-  | 'child_page'
-  | 'column'
-  | 'column_list'
-  | 'divider'
-  | 'embed'
-  | 'equation'
-  | 'file'
+  // | 'child_database'
+  // | 'child_page'
+  // | 'column'
+  // | 'column_list'
+  // | 'divider'
+  // | 'embed'
+  // | 'equation'
+  // | 'file'
   | 'heading_1'
   | 'heading_2'
   | 'heading_3'
-  | 'image'
-  | 'link_preview'
-  | 'link_to_page'
+  // | 'image'
+  // | 'link_preview'
+  // | 'link_to_page'
   | 'numbered_list_item'
   | 'paragraph'
-  | 'pdf'
+  // | 'pdf'
   | 'quote'
-  | 'synced_block'
+  // | 'synced_block'
   | 'table'
-  | 'table_of_contents'
-  | 'table_row'
-  | 'template'
+  // | 'table_of_contents'
+  // | 'table_row'
+  // | 'template'
   | 'to_do'
   | 'toggle'
-  | 'unsupported'
-  | 'video'
+  // | 'unsupported'
+  // | 'video'
   | 'code';
 
 export type RichText = {
@@ -76,7 +76,7 @@ export interface Block {
 export interface ParagraphBlock extends Block {
   type: 'paragraph';
   paragraph: {
-    text: RichText[];
+    rich_text: RichText[];
   };
 }
 
