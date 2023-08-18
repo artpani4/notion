@@ -5,7 +5,7 @@
     }
   },
   "tasks": {
-    "start": "deno run  --watch --allow-all src/notion.ts"
+    "e1": "deno run --allow-all sandbox/ex1.ts"
   },
   "lint": {
     "files": {
