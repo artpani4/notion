@@ -33,7 +33,7 @@ jobs:
     - name: Create Release
       if: steps.version.outputs.version != ''
       run: |
-        deno run --allow-net --allow-read - <<EOF
+        deno run --allow-net --allow-read --allow-env - <<EOF
         const token = Deno.env.get("GITHUB_TOKEN");
         if (!token) {
           console.error("GitHub token is missing.");
