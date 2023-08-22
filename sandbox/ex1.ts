@@ -55,3 +55,6 @@ const a = await extractFromBlock(
 );
 
 console.log(a);
+// console.log(Deno.env.get('GITHUB_TOKEN'));
+
+import { Octokit } from 'https://github.com/octokit/core.js';
