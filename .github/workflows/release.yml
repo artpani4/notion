@@ -13,10 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Deno
-      uses: denoland/setup-deno@v3
-      with:
-        deno-version: '1.33.3'
 
     - name: Determine Release Version
       id: version
