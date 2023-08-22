@@ -13,6 +13,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+      - uses: denolib/setup-deno@v2
+      with:
+        deno-version: v1.33.3
+
 
     - name: Determine Release Version
       id: version
@@ -28,6 +32,7 @@ jobs:
       run: |
         deno run --allow-net --allow-read - <<EOF
         const token = Deno.env.get("GITHUB_TOKEN");
+        consoloe.log(token)
         if (!token) {
           console.error("GitHub token is missing.");
           Deno.exit(1);
