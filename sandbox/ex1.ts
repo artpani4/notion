@@ -47,11 +47,11 @@ const config = (await Tuner.use.loadConfig()) as Config;
 // );
 // await append.h1(config.config.pageId, 'Тестовый H1');
 
-const a = await extractFromBlock(
-  {
-    url:
-      'https://www.notion.so/artpani/d1ecc246b8304e08a780b9a312548064?pvs=4#ef81f9e0a6b9482db00b2045bc1a76c4',
-  },
-);
+// const a = await extractFromBlock(
+//   {
+//     url:
+//       'https://www.notion.so/artpani/d1ecc246b8304e08a780b9a312548064?pvs=4#ef81f9e0a6b9482db00b2045bc1a76c4',
+//   },
+// );
 
-console.log(a);
+// console.log(a);
