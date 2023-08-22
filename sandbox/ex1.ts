@@ -1,6 +1,13 @@
-import { extractFromBlock } from '../src/extractors.ts';
-import { getBlockById, getBlocksByPage } from '../src/getters.ts';
+import Tuner from 'https://deno.land/x/tuner@v0.1.4/mod.ts';
+import { Config } from './config/configSchema.ts';
+import { append } from '../src/appendors.ts';
+import { getChildren } from '../src/getters.ts';
 import { urlToId } from '../src/helpers.ts';
+import { TableRow } from '../src/blockInterfaces.ts';
+import { extractFrom, extractFromBlock } from '../src/extractors.ts';
+
+const config = (await Tuner.use.loadConfig()) as Config;
+
 // const blocks = await getBlocksByPage(
 //   urlToId.page(
 //     'https://artpani.notion.site/d1ecc246b8304e08a780b9a312548064?pvs=4',
@@ -8,26 +15,43 @@ import { urlToId } from '../src/helpers.ts';
 // );
 // console.log(blocks);
 
-// const pidori = [];
-// blocks.forEach(async (block) => {
-//   const info = await extractFromBlock({ id: block.id });
-//   if (info === null) pidori.push(block.id);
-//   else {
-//     console.log(info);
-//   }
-// });
+// const a = await getBlockById(
+//   urlToId.block(
+//     'https://www.notion.so/artpani/d1ecc246b8304e08a780b9a312548064?pvs=4#3fa74b7de5f64304a575dbd526e1b2a3',
+//   ),
+// );
+// console.log(a);
 
-// setTimeout(async () => {
-//   console.log('-------------');
-//   console.log('А теперь пидоры:');
-//   console.log(pidori);
-//   for (let a of pidori) {
-//     console.log(a.id);
-//   }
-// }, 4000);
+// await append.callout(
+//   urlToId.page(
+//     'https://artpani.notion.site/d1ecc246b8304e08a780b9a312548064?pvs=4',
+//   ),
+//   'Тестовый колаут',
+//   '🦄',
+// );
 
-console.log(
-  await extractFromBlock({
-    id: '3d851f26-1046-4385-a1de-85a1911a4f27',
-  }),
+// await append.blItem(config.config.pageId, 'Тестовый BLITEM');
+// await append.nlItem(config.config.pageId, 'Тестовый NLITEM');
+// await append.toggleText(config.config.pageId, 'Тестовый ToggleText');
+// await append.paragraph(config.config.pageId, 'Тестовый Paragraph');
+// await append.toDo(config.config.pageId, 'Тестовый ToDo', true);
+// await append.code(
+//   config.config.pageId,
+//   'Тестовый Code',
+//   'typescript',
+// );
+// await append.quote(
+//   config.config.pageId,
+//   'Тестовый Quote',
+//   'Тестовый Quote',
+// );
+// await append.h1(config.config.pageId, 'Тестовый H1');
+
+const a = await extractFromBlock(
+  {
+    url:
+      'https://www.notion.so/artpani/d1ecc246b8304e08a780b9a312548064?pvs=4#ef81f9e0a6b9482db00b2045bc1a76c4',
+  },
 );
+
+console.log(a);

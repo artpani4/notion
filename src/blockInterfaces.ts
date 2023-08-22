@@ -7,7 +7,7 @@ export type BlockType =
   // | 'child_page'
   // | 'column'
   // | 'column_list'
-  // | 'divider'
+  | 'divider'
   // | 'embed'
   // | 'equation'
   // | 'file'
@@ -24,7 +24,7 @@ export type BlockType =
   // | 'synced_block'
   | 'table'
   // | 'table_of_contents'
-  // | 'table_row'
+  | 'table_row'
   // | 'template'
   | 'to_do'
   | 'toggle'
@@ -174,5 +174,12 @@ export interface CalloutBlock extends Block {
       emoji?: string;
       external?: { url: string };
     };
+  };
+}
+
+export interface TableRow extends Block {
+  type: 'table_row';
+  table_row: {
+    cells: RichText[][];
   };
 }
