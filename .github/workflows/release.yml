@@ -18,7 +18,17 @@ jobs:
       with:
         deno-version: '1.x'
 
+    - name: Determine Release Version
+      id: version
+      run: |
+        if [[ $(git log -1 --pretty=%B) =~ ^Release\ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+          echo "::set-output name=version::${BASH_REMATCH[1]}"
+        else
+          echo "::set-output name=version::"
+        fi
+
     - name: Create Release
+      if: steps.version.outputs.version != ''
       run: |
         deno run --allow-net --allow-read - <<EOF
         const token = Deno.env.get("GITHUB_TOKEN");
@@ -34,9 +44,9 @@ jobs:
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            tag_name: "v1.0.0",
-            name: "Release v1.0.0",
-            body: "Release description",
+            tag_name: "${{ steps.version.outputs.version }}",
+            name: "Release ${{ steps.version.outputs.version }}",
+            body: "Release description for version ${{ steps.version.outputs.version }}",
           }),
         });
 
